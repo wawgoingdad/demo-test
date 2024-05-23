@@ -39,13 +39,13 @@ const ForgetPassword = () => {
 
     return (
         <div className="row d-flex justify-content-center align-items-center forget-password-page p-5">
-            <div className="col-xl-6 col-lg-6 col-md-6 justify-content-end align-items-center">
+            <div className="col-xl-5 col-lg-5 col-md-5 justify-content-end align-items-center">
                     <div className="col-md-8 p-4 justify-content-center">
                         <h4>{t("forgetPassword")}</h4>
                         <p>{t("forgetPasswordInstruction")}</p>
                     </div>
             </div>
-            <div className="col-xl-6 col-lg-6 col-md-6 justify-content-end align-items-center">
+            <div className="col-xl-6 col-lg-6 col-md-6 justify-content-end align-items-center modal-side">
                 <div className="card mt-5">
                     <div className="card-body">
                         <h4 className="mb-4 mt-4">{t("forgetPassword")}</h4>
