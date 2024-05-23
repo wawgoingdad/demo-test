@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with CRA with minimum setup, trying to avoid much boilerplate.
+What I used in this:
+- Bootstrap
+- Redux
+- TypeScript
 
 ## Available Scripts
 
@@ -24,41 +28,27 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### Styling system
 This project using Bootstrap as core styling UI. Other, we can create more abstractions base on bootstrap layout, and even overrides on it in /src/styles folder.
 
 ### Application structure
 
-/src
-  /reducers
-  /types
-  /actions
-  /hooks
-
-  /components
-    /YourComponent
-      YourComponent.js
-      YourComponent.module.scss
-  /styles
-    /abstracts
-      _overrides.scss
-    /base
-      _overrides.scss
-    /layout
-      _header.scss
-      _footer.scss
-    /pages
-      _login.scss
-    /utils
-      _mixins.scss
-  index.scss
-  App.tsx
-index.tsx
+- **`/src`**: Main source directory for all the application's code.
+  - **`/actions`**: Contains Redux action creators.
+  - **`/components`**: Contains React components.
+    - **`/YourComponent`**: A specific component directory; contains both the component's JavaScript and its associated SCSS module.
+  - **`/hooks`**: Custom React hooks used throughout the application.
+  - **`/pages`**: SCSS files specific to different pages in the application.
+  - **`/reducers`**: Redux reducers managing state changes based on actions.
+  - **`/styles`**: Global styles and SCSS partials organized into several subdirectories:
+    - **`/abstracts`**: abstracts override bootstrap variables
+    - **`/base`**: Base styles for foundational layout and element styling
+    - **`/layout`**: Styles specifically for layout components like headers and footers.
+  - **`/types`**: TypeScript types and interfaces.
+  - **`/utils`**: Utility functions and common helpers.
+- **`App.tsx`**: The root React component that combines all page components.
+- **`index.tsx`**: Entry point for the React application that renders the `App`.
 
 ### Naming convention
 - Use PascalCase for React component files. Each component should be in its own file. Example: UserProfile.tsx, HeaderComponent.tsx
@@ -68,8 +58,3 @@ index.tsx
 - Use camelCase and suffix with Reducer.
 - Use camelCase and start with use. Example: hooks/useAuthentication.ts
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
