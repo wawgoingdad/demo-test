@@ -1,0 +1,19 @@
+body {
+    background-color: $primary;
+    color: $gray-300;
+}
+
+.text-success {
+    color: $success!important;
+}
+.text-orange {
+    color: $orange!important;
+}
+
+.language-switcher {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+  

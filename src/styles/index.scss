@@ -1,0 +1,14 @@
+@import "./abstracts/abstracts";
+
+@import '~bootstrap/scss/bootstrap';
+
+
+//components
+@import "./components/components";
+
+//Layouts
+@import "./layouts/layouts";
+
+//Page specific styles
+@import "./pages/pages";
+

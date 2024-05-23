@@ -1,0 +1,19 @@
+{
+    "welcomeBack": "Welcome back!",
+    "excitedToSeeYou": "We’re so excited to see you again!",
+    "email": "Email",
+    "password": "Password",
+    "login": "Login",
+    "forgetPassword": "Forget Password?",
+    "emailRequired": "Email is required.",
+    "invalidEmail": "Invalid email format.",
+    "passwordRequired": "Password is required.",
+    "passwordLength": "Password must be at least 8 characters long.",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "submit": "Submit",
+    "emailYou": "We will try to email you, ",
+    "firstNameRequired": "First name is required.",
+    "lastNameRequired": "Last name is required.",
+    "forgetPasswordInstruction": "Please enter your first and last name. We will attempt to retrieve your account information and send instructions to your registered email address."
+}

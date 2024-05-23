@@ -29,15 +29,44 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Styling system
+This project using Bootstrap as core styling UI. Other, we can create more abstractions base on bootstrap layout, and even overrides on it in /src/styles folder.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Application structure
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+/src
+  /reducers
+  /types
+  /actions
+  /hooks
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  /components
+    /YourComponent
+      YourComponent.js
+      YourComponent.module.scss
+  /styles
+    /abstracts
+      _overrides.scss
+    /base
+      _overrides.scss
+    /layout
+      _header.scss
+      _footer.scss
+    /pages
+      _login.scss
+    /utils
+      _mixins.scss
+  index.scss
+  App.tsx
+index.tsx
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Naming convention
+- Use PascalCase for React component files. Each component should be in its own file. Example: UserProfile.tsx, HeaderComponent.tsx
+- Use camelCase for utility files.
+- Use PascalCase and end with Types if it includes various types, or directly relate it to its use.
+- Use camelCase and suffix with Actions. Example: actions/userActions.ts, actions/productActions.ts
+- Use camelCase and suffix with Reducer.
+- Use camelCase and start with use. Example: hooks/useAuthentication.ts
 
 ## Learn More
 
