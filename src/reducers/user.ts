@@ -25,5 +25,3 @@ const {
 } = userPreferenceSlice.actions;
 
 export const userPreference = userPreferenceSlice.reducer;
-
-// export const userPreferenceReducer = userPreferenceSlice.reducer;

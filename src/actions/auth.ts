@@ -10,7 +10,8 @@ export const login = createAsyncThunk(
         const response = await loginService(credentials);
         return response.data;
       } catch (error: any) {
-        return rejectWithValue(error.response.data);
+        const errorPayload = error?.response?.data || 'Unknown error. Please try again later';
+        return rejectWithValue(errorPayload);
       }
     }
 );
