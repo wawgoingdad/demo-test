@@ -1,24 +1,26 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { User, createUserSchema } from "../models/userSchema";
 import { z } from "zod";
 import { login } from "../actions/auth";
 import useAuthentication from "../hooks/useAuthentication";
 import { useTranslation } from "react-i18next";
-
-export interface FormErrors {
-    [key: string]: string | undefined;
-}
+import { FormErrors } from "./types/FormError";
 
 const LoginPage: React.FC = () => {
-    const navigate = useNavigate();
     const { t } = useTranslation();
     const userSchema = createUserSchema(t);
     const dispatch = useAppDispatch();
     const [formData, setFormData] = useState({ email: "", password: "" });
     const [errors, setErrors] = useState<FormErrors>({});
-    const { loading, isAuthenticated } = useAuthentication();
+    const { loading, isAuthenticated, error } = useAuthentication();
+
+    useEffect(() => {
+        if (error) {
+            setErrors({ email: error });
+        }
+    }, [error]);
 
     const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -34,13 +36,6 @@ const LoginPage: React.FC = () => {
         try {
             userSchema.parse(formData);
             dispatch(login(formData as User));
-            // if (result.type.endsWith("fulfilled")) {
-                // setWelcomeMessage(`Welcome back, ${formData.email}!`);
-                // setSuccess(true);
-                // setTimeout(() => {
-                //     setSuccess(false);  // Resets the login form after a delay
-                // }, 3000);
-            // }
         } catch (error) {
             if (error instanceof z.ZodError) {
                 const newErrors: FormErrors = {};
@@ -75,7 +70,9 @@ const LoginPage: React.FC = () => {
                             </div>
                         </div>
                     ) : (
-                        <div className={`col-xl-4 col-lg-4 col-md-6 col-sm-7 justify-content-center align-items-center login-card`}>
+                        <div
+                            className={`col-xl-4 col-lg-4 col-md-6 col-sm-7 justify-content-center align-items-center login-card`}
+                        >
                             <div className="card mt-5">
                                 <div className="card-body">
                                     <div className="nav nav-tabs border-bottom-0">
@@ -162,12 +159,6 @@ const LoginPage: React.FC = () => {
                                                         </div>
                                                     </div>
                                                     <div className="form-group mb-5 mt-1 d-flex justify-content-center">
-                                                        {/* <button
-                                                        type="button"
-                                                        className="btn btn-link text-center"
-                                                    >
-                                                        {t("forgetPassword")}
-                                                    </button> */}
                                                         <Link
                                                             to="/forget-password"
                                                             className="btn btn-link text-center"
